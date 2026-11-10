@@ -1,0 +1,6 @@
+id,name,river,city,state,latitude,longitude,alert_level_m
+EST-001,Ponte Velha,Rio Aurora,Vale Verde,MG,-19.912,-43.941,4.5
+EST-002,Cachoeira Alta,Rio Aurora,Serra Azul,MG,-20.105,-44.002,3.8
+EST-003,Porto do Sol,Rio Jaguará,Campo Belo,SP,-22.53,-47.11,6.0
+EST-004,Barra Mansa,Rio Jaguará,Lagoa Funda,SP,-22.702,-47.38,5.2
+EST-005,Estação Nova,Rio Cristal,Pedra Branca,PR,-25.43,-49.27,3.0

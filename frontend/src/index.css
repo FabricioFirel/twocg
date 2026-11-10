@@ -1,0 +1,146 @@
+:root {
+  --fundo: #f4f6f8;
+  --superficie: #ffffff;
+  --texto: #1b2430;
+  --suave: #5b6675;
+  --borda: #d8dee6;
+  --grade: #e3e8ee;
+  --destaque: #1f6feb;
+  --nivel: #1f6feb;
+  --chuva: #2a9d8f;
+  --alerta: #c0392b;
+  --atencao: #b7791f;
+  --ok: #2f855a;
+  --aviso-fundo: #fff4e5;
+  --aviso-borda: #f0b35a;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fundo);
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f141a;
+    --superficie: #18202a;
+    --texto: #e6ebf1;
+    --suave: #9aa6b4;
+    --borda: #2c3744;
+    --grade: #26313d;
+    --destaque: #5b9bff;
+    --nivel: #5b9bff;
+    --chuva: #4fc3b4;
+    --alerta: #ff6b5b;
+    --atencao: #f0b35a;
+    --ok: #5fd08f;
+    --aviso-fundo: #2d2414;
+    --aviso-borda: #8a6420;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fundo); }
+h1, h2, h3 { margin: 0; line-height: 1.2; }
+
+.topo, .conteudo, .rodape {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.topo h1 { font-size: 1.6rem; margin-bottom: 12px; }
+.aviso {
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--aviso-fundo);
+  border: 1px solid var(--aviso-borda);
+  border-radius: 8px;
+}
+.conteudo { display: flex; flex-direction: column; gap: 16px; }
+.conteudo > h2 { font-size: 1.3rem; margin-bottom: -12px; }
+.detalhe { color: var(--suave); font-size: 0.875rem; font-weight: normal; margin: 0; }
+.rodape { color: var(--suave); font-size: 0.8rem; }
+
+.controles { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
+.campo { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.campo label, .campo > span { font-weight: 600; font-size: 0.9rem; }
+select, button {
+  font: inherit;
+  color: var(--texto);
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-height: 40px;
+}
+select { width: 100%; text-overflow: ellipsis; }
+.controles .campo:first-child { flex: 0 1 460px; }
+button { cursor: pointer; }
+button:hover { border-color: var(--destaque); }
+:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
+.botoes { display: flex; gap: 6px; }
+.botoes button.ativo { background: var(--destaque); border-color: var(--destaque); color: #fff; }
+
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 14px;
+}
+.cartao h3 { font-size: 0.9rem; color: var(--suave); font-weight: 600; }
+.cartao .valor { font-size: 1.6rem; font-weight: 700; margin: 4px 0; }
+.status-normal .valor { color: var(--ok); }
+.status-atencao .valor { color: var(--atencao); }
+.status-alerta .valor { color: var(--alerta); }
+
+.graficos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 12px; }
+.grafico {
+  margin: 0;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 14px;
+  min-width: 0;
+}
+.grafico h3 { font-size: 1rem; }
+.grafico-area { height: 260px; margin-top: 8px; }
+.recharts-cartesian-axis-tick-value { fill: var(--suave); }
+.dica {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+.estado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+  background: var(--superficie);
+  border: 1px dashed var(--borda);
+  border-radius: 10px;
+  color: var(--suave);
+  text-align: center;
+}
+.estado p { margin: 0; }
+.estado-erro { border-color: var(--alerta); color: var(--alerta); border-style: solid; }
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--borda);
+  border-top-color: var(--destaque);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+
+@media (max-width: 480px) {
+  .graficos { grid-template-columns: 1fr; }
+  .grafico-area { height: 220px; }
+  .controles { flex-direction: column; align-items: stretch; }
+  .controles .campo:first-child { flex: none; }
+}
