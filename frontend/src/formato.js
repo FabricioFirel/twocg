@@ -15,6 +15,13 @@ export function horaUtc(iso) {
   })
 }
 
+export function diaHoraCurta(iso) {
+  const d = new Date(iso)
+  const hora = horaUtc(iso)
+  if (d.getUTCHours() !== 0) return hora
+  return d.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' })
+}
+
 export function numero(valor, casas = 2) {
   if (valor === null || valor === undefined) return '—'
   return valor.toLocaleString('pt-BR', { minimumFractionDigits: casas, maximumFractionDigits: casas })

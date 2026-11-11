@@ -8,7 +8,7 @@ Gera dois arquivos CSV nesta mesma pasta:
 
 Os dados são FICTÍCIOS e não servem para fins operacionais reais.
 
-Uso:
+Uso: 
     python seed.py                 # 7 dias, terminando na hora cheia atual (UTC)
     python seed.py --days 3        # 3 dias de leituras
     python seed.py --seed 123      # outra semente aleatória
